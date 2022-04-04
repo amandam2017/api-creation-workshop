@@ -10,5 +10,16 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amandam2017/api-creation-workshop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amandam2017/api-creation-workshop/issues"
+  },
+  "homepage": "https://github.com/amandam2017/api-creation-workshop#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

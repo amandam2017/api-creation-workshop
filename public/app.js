@@ -20,6 +20,28 @@ genderOptions.addEventListener('click', function(evt){
 	filterData();
 });
 
+const garmentsList = async()=>{
+	axios.get('http://localhost:4017/api/garments').then(function(results){
+		console.log(results.data);
+
+		// res.render('index', {
+
+		// })
+
+		// res.json({garments});
+	})
+}
+garmentsList(); 
+
+// const filterData =()=>{
+// 	axios.get('http://localhost:4017/api/garments').then(function(results){
+// 		results.data.forEach(element => {
+			
+// 		});
+
+// 	})
+// }
+
 function filterData() {
 	axios
 		.get(`/api/garments?gender=${genderFilter}&season=${seasonFilter}`)
