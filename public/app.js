@@ -24,11 +24,11 @@ const garmentsList = async()=>{
 	axios.get('http://localhost:4017/api/garments').then(function(results){
 		console.log(results.data);
 
-		// res.render('index', {
+		res.render('index', {
 
-		// })
+		})
 
-		// res.json({garments});
+		res.json({garments});
 	})
 }
 garmentsList(); 
