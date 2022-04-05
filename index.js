@@ -15,6 +15,10 @@ app.get('/api/garments', function (req, res) {
 
 })
 
+app.get('/api/garments/price/:price', function (req, res){
+    res.json(garments.price)
+})
+
 app.get('/api/garments/price/:${price}', function(req, res){
     res.json({price})
 })
