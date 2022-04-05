@@ -10,6 +10,25 @@ const showPriceRangeElem = document.querySelector('.showPriceRange');
 const garmentsTemplateText = document.querySelector('.garmentListTemplate');
 const garmentsTemplate = Handlebars.compile(garmentsTemplateText.innerHTML);
 
+// fields to be read from the DOM
+const domFields = {
+		"description": "Rainbow unicorn sweater",
+		"price": 799.00,
+		"img" : "placeholder.png",
+		"gender" : "Unisex",
+		"season" : "All season"
+  };
+  
+  axios.post('/api/garments', domFields)
+	.then((result) => {
+		// show snackbar - with success message
+		console.log(result.data);
+	})
+	.catch(err => {
+	  console.log(err);
+	});
+  
+
 seasonOptions.addEventListener('click', function(evt){
 	seasonFilter = evt.target.value;
 	filterData();
