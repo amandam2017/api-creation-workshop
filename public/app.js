@@ -20,27 +20,27 @@ genderOptions.addEventListener('click', function(evt){
 	filterData();
 });
 
-const garmentsList = async()=>{
-	axios.get('http://localhost:4017/api/garments').then(function(results){
-		console.log(results.data);
-
-		res.render('index', {
-
-		})
-
-		res.json({garments});
-	})
-}
-garmentsList(); 
-
-// const filterData =()=>{
+// const garmentsList = async(req, res)=>{
 // 	axios.get('http://localhost:4017/api/garments').then(function(results){
-// 		results.data.forEach(element => {
-			
-// 		});
+// 		console.log(results.data);
 
+// 		res.render('index', {
+// 			garmentsTemplate: garments
+// 		})
+
+// 		// res.json({garments});
 // 	})
 // }
+// garmentsList(); 
+
+const garmentsList =()=>{
+	axios.get('http://localhost:4017/api/garments').then(function(result){
+		console.log(result.data);
+		garmentsTemplate(result.data.garments);	
+	})
+}
+
+garmentsList();
 
 function filterData() {
 	axios
