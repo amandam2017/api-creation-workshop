@@ -39,7 +39,7 @@
 		<div class="filter" >
 
 			<div class="add button mt1" >
-				<a href="">Add garmet</a>
+				<a onclick="showSnackBar()" href="">Add garmet</a>
 			</div>
 
 			<h2>Filter</h2>
@@ -60,6 +60,7 @@
 				<input type="range" name="priceRange" max="1000" step="50" class="priceRange" value="0"  >
 				R<span class="showPriceRange" >0</span>.00
 			</div>
+			<span id="snackbar">New garment added</span>
 		</div>
 
 		<div>
@@ -73,3 +74,13 @@
 	<script src="app.js"></script>
 </body>
 </html>
+
+
+<!-- LEARN -->
+<!-- 1. Thunder Client
+	Allows developers to test HTTP request and view the response
+	Is an extention that is used to call the API'S
+
+2.Snackbar
+SnackBar is a Flutter widget that enables you to temporarily display a pop-up message in your app. 
+It usually appears at the bottom of the app's screen -->

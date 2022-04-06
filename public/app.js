@@ -7,27 +7,36 @@ const searchResultsElem = document.querySelector('.searchResults');
 const priceRangeElem = document.querySelector('.priceRange');
 const showPriceRangeElem = document.querySelector('.showPriceRange');
 
+// snackbar
+// const snackbarElem = document.querySelector('.snackbar');
+
 const garmentsTemplateText = document.querySelector('.garmentListTemplate');
 const garmentsTemplate = Handlebars.compile(garmentsTemplateText.innerHTML);
 
 // fields to be read from the DOM
-const domFields = {
-		"description": "Rainbow unicorn sweater",
-		"price": 799.00,
-		"img" : "placeholder.png",
-		"gender" : "Unisex",
-		"season" : "All season"
-  };
+// const domFields = {
+// 		"description": "Rainbow unicorn sweater",
+// 		"price": 799.00,
+// 		"img" : "placeholder.png",
+// 		"gender" : "Unisex",
+// 		"season" : "All season"
+//   };
   
-  axios.post('/api/garments', domFields)
-	.then((result) => {
-		// show snackbar - with success message
-		console.log(result.data);
-	})
-	.catch(err => {
-	  console.log(err);
-	});
+//   axios.post('/api/garments', domFields)
+// 	.then((result) => {
+// 		// show snackbar - with success message
+// 		console.log(result.data);
+// 		showSnackBar();
+// 	})
+// 	.catch(err => {
+// 	  console.log(err);
+// 	});
   
+const showSnackBar = ()=>{
+	const snackbarElem = document.getElementById('snackbar');
+	snackbarElem.className = 'show';
+	setTimeout(function(){ snackbarElem.className = snackbarElem.className.replace("show", ""); }, 3000);
+}
 
 seasonOptions.addEventListener('click', function(evt){
 	seasonFilter = evt.target.value;
@@ -54,6 +63,7 @@ garmentsList();
 // /api/garments/price/:price ----end point
 const priceEndpoint = ()=>{
 	axios.get('http://localhost:4017/api/garments/price/:price').then(function(result){
+		console.log(result.data);
 		searchResultsElem.innerHTML = garmentsTemplate({
 			garments: result.data.garments,
 		})
