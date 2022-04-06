@@ -6,31 +6,10 @@ const genderOptions = document.querySelector('.genders');
 const searchResultsElem = document.querySelector('.searchResults');
 const priceRangeElem = document.querySelector('.priceRange');
 const showPriceRangeElem = document.querySelector('.showPriceRange');
-
-// snackbar
-// const snackbarElem = document.querySelector('.snackbar');
+ackbarElem = document.querySelector('.snackbar');
 
 const garmentsTemplateText = document.querySelector('.garmentListTemplate');
 const garmentsTemplate = Handlebars.compile(garmentsTemplateText.innerHTML);
-
-// fields to be read from the DOM
-// const domFields = {
-// 		"description": "Rainbow unicorn sweater",
-// 		"price": 799.00,
-// 		"img" : "placeholder.png",
-// 		"gender" : "Unisex",
-// 		"season" : "All season"
-//   };
-  
-//   axios.post('/api/garments', domFields)
-// 	.then((result) => {
-// 		// show snackbar - with success message
-// 		console.log(result.data);
-// 		showSnackBar();
-// 	})
-// 	.catch(err => {
-// 	  console.log(err);
-// 	});
   
 const showSnackBar = ()=>{
 	const snackbarElem = document.getElementById('snackbar');
