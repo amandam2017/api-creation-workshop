@@ -10,6 +10,25 @@ const showPriceRangeElem = document.querySelector('.showPriceRange');
 const garmentsTemplateText = document.querySelector('.garmentListTemplate');
 const garmentsTemplate = Handlebars.compile(garmentsTemplateText.innerHTML);
 
+// fields to be read from the DOM
+const domFields = {
+		"description": "Rainbow unicorn sweater",
+		"price": 799.00,
+		"img" : "placeholder.png",
+		"gender" : "Unisex",
+		"season" : "All season"
+  };
+  
+  axios.post('/api/garments', domFields)
+	.then((result) => {
+		// show snackbar - with success message
+		console.log(result.data);
+	})
+	.catch(err => {
+	  console.log(err);
+	});
+  
+
 seasonOptions.addEventListener('click', function(evt){
 	seasonFilter = evt.target.value;
 	filterData();
@@ -20,27 +39,29 @@ genderOptions.addEventListener('click', function(evt){
 	filterData();
 });
 
-// const garmentsList = async(req, res)=>{
-// 	axios.get('http://localhost:4017/api/garments').then(function(results){
-// 		console.log(results.data);
-
-// 		res.render('index', {
-// 			garmentsTemplate: garments
-// 		})
-
-// 		// res.json({garments});
-// 	})
-// }
-// garmentsList(); 
-
+// garments end point
 const garmentsList =()=>{
 	axios.get('http://localhost:4017/api/garments').then(function(result){
 		console.log(result.data);
-		garmentsTemplate(result.data.garments);	
+		searchResultsElem.innerHTML = garmentsTemplate({
+			garments: result.data.garments
+		})
 	})
 }
 
 garmentsList();
+
+// /api/garments/price/:price ----end point
+const priceEndpoint = ()=>{
+	axios.get('http://localhost:4017/api/garments/price/:price').then(function(result){
+		searchResultsElem.innerHTML = garmentsTemplate({
+			garments: result.data.garments,
+		})
+		
+	})
+}
+
+priceEndpoint();
 
 function filterData() {
 	axios
