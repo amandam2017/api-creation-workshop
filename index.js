@@ -1,6 +1,6 @@
 // add code in here to create an API with ExpressJS
 const express = require('express');
-// const nodemon = require('nodemon');
+
 const app = express();
 
 // import the dataset to be used here
@@ -9,12 +9,18 @@ const garments = require('./garments.json');
 //middlewere to make public folder visible
 app.use(express.static('public'));
 
+// require jsonwebtoken below:
+const jwt = require('jsonwebtoken');
+
 // middlewere to enable the req.body object - to allow us to use HTML forms
 // when doing post requests
 // put this before you declare any routes
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// add a login route below:
+// app.post('')
 
 // API routes to be added here
 // ADDED GARMENT which is the main route ---
@@ -101,11 +107,7 @@ app.post('/api/garments', (req, res) => {
 
 });
 
-
-
-// app.get('/api/garments/price/:${price}', function(req, res){
-//     res.json({price})
-// })
+// app.post()
 
 
 const PORT = process.env.PORT || 4017;

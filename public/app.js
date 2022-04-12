@@ -6,7 +6,7 @@ const genderOptions = document.querySelector('.genders');
 const searchResultsElem = document.querySelector('.searchResults');
 const priceRangeElem = document.querySelector('.priceRange');
 const showPriceRangeElem = document.querySelector('.showPriceRange');
-ackbarElem = document.querySelector('.snackbar');
+const snackbarElem = document.querySelector('.snackbar');
 
 const garmentsTemplateText = document.querySelector('.garmentListTemplate');
 const garmentsTemplate = Handlebars.compile(garmentsTemplateText.innerHTML);
