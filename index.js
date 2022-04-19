@@ -20,7 +20,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // add a login route below:
-// app.post('')
+app.post('/api/login', function(req, res){
+	// Authanticate a request using JWT
+
+  // get the username
+  const username = req.body.username;
+
+  const user = { name: username };
+
+  // below we are serialising the user
+  const key = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+  
+  res.json({ key: key })
+
+})
 
 // API routes to be added here
 // ADDED GARMENT which is the main route ---
@@ -106,8 +119,6 @@ app.post('/api/garments', (req, res) => {
 	}
 
 });
-
-// app.post()
 
 
 const PORT = process.env.PORT || 4017;
