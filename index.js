@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // add a login route below:
-app.post('/api/login', function(req, res){
+app.get('/api/login', function(req, res){
 
   // get the username
   const username = req.body.username;
@@ -36,15 +36,15 @@ app.post('/api/login', function(req, res){
 const authanticateToken = (req, res, next) => {
 	// inside this function we want to get the token that is generated/sent to us and to verify if this is the correct user.
 	const authHeader = req.headers['authorization']
-	// console.log(authHeader);
+	// console.log({authHeader});
 	const token = authHeader && authHeader.split(" ")[1]
-	// console.log(token);
 	// if theres no token tell me
 	if (token === null) return res.sendStatus(401)
 	// if there is then verify if its the correct user using id if not return the error
 	jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
 	  // console.log(err);
 	  if (err) return res.sendStatus(403)
+	  console.log('show error'+err);
   
 	  req.user = user
 	  console.log(user);

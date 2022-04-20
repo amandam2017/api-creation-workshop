@@ -34,8 +34,19 @@
 	</script>
 </head>
 <body>
-	<div class="container" >
+	<div class="login hidden">
+		<strong>Logged in as</strong> <span class="username" >amandam</span>
+	</div>
+	<div class="container " >
 		<h1>Missy Tee - clothing store</h1>
+
+		<div class="login__section">
+			<label for="">Enter your github username</label>
+			<input type="text" class="userInput">
+			<button class="loginbtn">Login</button>
+		</div>
+		
+		<div class="top__section hidden">
 		<div class="filter" >
 
 			<div class="gaments">
@@ -92,12 +103,13 @@
 			</div>
 			<span id="snackbar">New garment added</span>
 		</div>
+	</div>
  
 		<div class="message hidden" >
 
 		</div>
 
-		<div class="addGarment" >
+		<div class="addGarment hidden" >
 			
 			<div class="add button mt1 hidden" >
 				<a href="">Add garmet</a>
@@ -142,7 +154,7 @@
 
 		</div>
 
-		<div>
+		<div class="garmentsResults__section hidden">
 			<h2>Garments</h2>
 			
 			<div class="searchResults" >

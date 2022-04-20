@@ -7,6 +7,8 @@ const searchResultsElem = document.querySelector('.searchResults');
 const priceRangeElem = document.querySelector('.priceRange');
 const showPriceRangeElem = document.querySelector('.showPriceRange');
 const snackbarElem = document.querySelector('.snackbar');
+const userInputElem = document.querySelector('.userInput');
+const loginbtnElem = document.querySelector('.loginbtn');
 
 const garmentsTemplateText = document.querySelector('.garmentListTemplate');
 const garmentsTemplate = Handlebars.compile(garmentsTemplateText.innerHTML);
@@ -27,8 +29,35 @@ genderOptions.addEventListener('click', function(evt){
 	filterData();
 });
 
+// event lister for a button
+loginbtnElem.addEventListener('click', function(){
+	let username = userInputElem.value
+	console.log(username);
+	loginRoute();
+})
+
+// local storage
+let storedTokens = []
+if(localStorage['userToken']){
+    storedTokens = JSON.parse(localStorage.getItem('userToken'));
+}
+
+const loginRoute = ()=>{
+	axios.get(`http://localhost:4017/api/login`).then(function(result){
+		console.log(result.data);
+		username = result.data
+
+		console.log(username);
+
+		localStorage.setItem('myTokens', JSON.stringify(username));
+
+	})
+}
+
 const securedPosts = ()=>{
-	axios.get('http://localhost:4017/api/posts').then(function(result){
+	axios.get(`http://localhost:4017/api/posts`, {
+		
+	}).then(function(result){
 		searchResultsElem.innerHTML = garmentsTemplate({
 			garments: result.data.garments
 		})
