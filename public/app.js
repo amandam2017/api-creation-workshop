@@ -27,6 +27,16 @@ genderOptions.addEventListener('click', function(evt){
 	filterData();
 });
 
+const securedPosts = ()=>{
+	axios.get('http://localhost:4017/api/posts').then(function(result){
+		searchResultsElem.innerHTML = garmentsTemplate({
+			garments: result.data.garments
+		})
+	})
+}
+
+securedPosts();
+
 // garments end point
 const garmentsList =()=>{
 	axios.get('http://localhost:4017/api/garments').then(function(result){

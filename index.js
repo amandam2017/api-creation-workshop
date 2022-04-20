@@ -3,6 +3,8 @@ const express = require('express');
 
 const app = express();
 
+require('dotenv').config();
+
 // import the dataset to be used here
 const garments = require('./garments.json');
 
@@ -12,30 +14,53 @@ app.use(express.static('public'));
 // require jsonwebtoken below:
 const jwt = require('jsonwebtoken');
 
-// middlewere to enable the req.body object - to allow us to use HTML forms
-// when doing post requests
-// put this before you declare any routes
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // add a login route below:
 app.post('/api/login', function(req, res){
-	// Authanticate a request using JWT
 
   // get the username
   const username = req.body.username;
 
-  const user = { name: username };
+  const user = { username: username };
 
+  const key = generateAccessToken(user);
   // below we are serialising the user
-  const key = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+//   const key = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
   
   res.json({ key: key })
 
 })
 
+const authanticateToken = (req, res, next) => {
+	// inside this function we want to get the token that is generated/sent to us and to verify if this is the correct user.
+	const authHeader = req.headers['authorization']
+	// console.log(authHeader);
+	const token = authHeader && authHeader.split(" ")[1]
+	// console.log(token);
+	// if theres no token tell me
+	if (token === null) return res.sendStatus(401)
+	// if there is then verify if its the correct user using id if not return the error
+	jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+	  // console.log(err);
+	  if (err) return res.sendStatus(403)
+  
+	  req.user = user
+	  console.log(user);
+	  next()
+	})
+  
+  }
+
+  const generateAccessToken = (user)=>{
+	return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn:'24h'});
+  }
+
 // API routes to be added here
+app.get('/api/posts', authanticateToken, function(req, res){
+	res.json({garmants:garments})
+})
 // ADDED GARMENT which is the main route ---
 app.get('/api/garments', function (req, res) {
 
