@@ -37,19 +37,16 @@ loginbtnElem.addEventListener('click', function(){
 })
 
 // local storage
-let storedTokens = []
-if(localStorage['userToken']){
-    storedTokens = JSON.parse(localStorage.getItem('userToken'));
-}
+
+    let storedTokens = JSON.parse(localStorage.getItem('userToken'));
+
 
 const loginRoute = ()=>{
 	axios.get(`http://localhost:4017/api/login`).then(function(result){
 		console.log(result.data);
-		username = result.data
-
-		console.log(username);
-
-		localStorage.setItem('myTokens', JSON.stringify(username));
+		userToken = result.data
+		// console.log(username);
+		localStorage.setItem('myTokens', JSON.stringify(userToken));
 
 	})
 }

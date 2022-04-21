@@ -1,7 +1,9 @@
 const message = document.querySelector('.message');
 const addGarmetBtn = document.querySelector('.addGarmentBtn');
 const hideAddGarmetBtn = document.querySelector('.hideAddGarmetBtn');
+// section I want to show on add garment link click
 const addGarmetSection = document.querySelector('.add.garment');
+// hide when add button is clicked
 const addGarmetButtonSection = document.querySelector('.add.button');
 
 function showMessage(value){
