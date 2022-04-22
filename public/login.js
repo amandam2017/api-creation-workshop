@@ -15,11 +15,11 @@ const showHiddenSections = ()=>{
     topSectionElem.classList.toggle('hidden');
 }
 
-loginSectionBtnElem.addEventListener('click', function(evt){
-    loginScreenToggle();
-})
+// loginSectionBtnElem.addEventListener('click', function(evt){
+//     loginScreenToggle();
+// })
 
-loginSectionBtnElem.addEventListener('click', function(evt){
-    evt.preventDefault();
-    showHiddenSections();
-})
+// loginSectionBtnElem.addEventListener('click', function(evt){
+//     evt.preventDefault();
+//     showHiddenSections();
+// })
