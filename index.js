@@ -23,12 +23,11 @@ app.post('/api/login', function (req, res) {
 
 	// get the username using ES6 constructor
 	const { username } = req.body;
-	const user = {username: username}
 	// const username = req.body.username;
 
 	if (username === adminUser.username) {
 
-		const key = generateAccessToken(user);
+		const key = generateAccessToken({username});
 		// below we are serialising the user
 		//   const key = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
 
