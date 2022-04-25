@@ -56,7 +56,7 @@ const loginRoute = (username) => {
 			filterData();
 
 			userToken = result.data
-			// console.log(userToken);
+			console.log(userToken);
 			localStorage.setItem('myTokens', JSON.stringify(userToken));
 		}
 

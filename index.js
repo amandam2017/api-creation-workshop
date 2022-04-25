@@ -18,22 +18,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 const adminUser = { username: 'amandam2017' }
-console.log(adminUser);
 // add a login route below:
 app.post('/api/login', function (req, res) {
 
 	// get the username using ES6 constructor
 	const { username } = req.body;
+	const user = {username: username}
 	// const username = req.body.username;
 
 	if (username === adminUser.username) {
 
-		const key = generateAccessToken(username);
-		console.log(key);
+		const key = generateAccessToken(user);
 		// below we are serialising the user
 		//   const key = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
 
-		res.json({ key })
+		res.json({key})
 	}
 	else {
 		res.json({
@@ -65,8 +64,8 @@ const authanticateToken = (req, res, next) => {
 
 }
 
-const generateAccessToken = async (user) => {
-	return await jwt.sign(user, 'secretKey', { expiresIn: '24h' });
+const generateAccessToken = (user) => {
+	return jwt.sign(user, 'secretKey', { expiresIn: '24h' });
 }
 
 // API routes to be added here
