@@ -13,9 +13,9 @@ app.use((req, res, next) => {
 	next();
   });
 
-// app.use(cors({
-//     methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
-// }));
+app.use(cors({
+    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+}));
 
 
 require('dotenv').config();
