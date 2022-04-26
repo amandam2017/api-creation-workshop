@@ -5,7 +5,7 @@ const app = express();
 
 const cors = require('cors');
 app.use(cors({
-    origin: 'https://www.google.com/'
+    origin: 'http://localhost:4017/'
 }));
 
 app.use(cors({
