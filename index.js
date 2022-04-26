@@ -5,7 +5,7 @@ const app = express();
 
 const cors = require('cors');
 app.use(cors({
-    origin: 'https://api-creation-workshop-ma.herokuapp.com/'
+    origin: 'https://www.google.com/'
 }));
 
 app.use(cors({
