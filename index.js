@@ -29,7 +29,7 @@ app.use(express.urlencoded({ extended: false }));
 
 const adminUser = { username: 'amandam2017' }
 // add a login route below:
-app.post('/api/login', cores(), function (req, res, next) {
+app.post('/api/login', cors(), function (req, res, next) {
 
 	// get the username using ES6 constructor
 	const { username } = req.body;
