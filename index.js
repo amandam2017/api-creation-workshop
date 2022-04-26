@@ -43,8 +43,6 @@ app.post('/api/login', cors(), function (req, res, next) {
 	if (username === adminUser.username) {
 
 		const key = generateAccessToken({username});
-		// below we are serialising the user
-		//   const key = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
 
 		res.json({key})
 	}
