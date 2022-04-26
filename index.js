@@ -3,6 +3,16 @@ const express = require('express');
 
 const app = express();
 
+const cors = require('cors');
+app.use(cors({
+    origin: 'https://api-creation-workshop-ma.herokuapp.com/'
+}));
+
+app.use(cors({
+    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+}));
+
+
 require('dotenv').config();
 
 // import the dataset to be used here
@@ -19,7 +29,7 @@ app.use(express.urlencoded({ extended: false }));
 
 const adminUser = { username: 'amandam2017' }
 // add a login route below:
-app.post('/api/login', function (req, res) {
+app.post('/api/login', cores(), function (req, res, next) {
 
 	// get the username using ES6 constructor
 	const { username } = req.body;
