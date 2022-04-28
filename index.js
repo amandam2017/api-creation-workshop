@@ -81,7 +81,7 @@ const generateAccessToken = (user) => {
 }
 
 // API routes to be added here
-app.get('/api/posts', cors(), authanticateToken, function (req, res) {
+app.get('/api/posts', authanticateToken, function (req, res) {
 	res.json({ garmants: garments })
 })
 // ADDED GARMENT which is the main route ---
