@@ -81,11 +81,11 @@ const generateAccessToken = (user) => {
 }
 
 // API routes to be added here
-app.get('/api/posts', authanticateToken, function (req, res) {
+app.get('/api/posts', cors(), authanticateToken, function (req, res) {
 	res.json({ garmants: garments })
 })
 // ADDED GARMENT which is the main route ---
-app.get('/api/garments', function (req, res) {
+app.get('/api/garments', cors(), function (req, res) {
 
 	const gender = req.query.gender;
 	const season = req.query.season;
@@ -111,7 +111,7 @@ app.get('/api/garments', function (req, res) {
 
 })
 // ADDED A PRICE ROUTE ---
-app.get('/api/garments/price/:price', function (req, res) {
+app.get('/api/garments/price/:price', cors(),function (req, res) {
 	const maxPrice = Number(req.params.price);
 	const filteredGarments = garments.filter(garment => {
 		// filter only if the maxPrice is bigger than maxPrice
