@@ -42,7 +42,7 @@ let storedTokens = JSON.parse(localStorage.getItem('myTokens'));
 
 
 const loginRoute = (username) => {
-	axios.post(`http://localhost:4017/api/login`, { username }).then(function (result) {
+	axios.post(`/api/login`, { username }).then(function (result) {
 		console.log(result.data);
 		if (result.data && result.data.status) {
 			// show error message on screen
@@ -64,7 +64,7 @@ const loginRoute = (username) => {
 }
 
 const securedPosts = () => {
-	axios.get(`http://localhost:4017/api/posts`, {
+	axios.get(`/api/posts`, {
 
 	}).then(function (result) {
 		searchResultsElem.innerHTML = garmentsTemplate({
@@ -77,7 +77,7 @@ securedPosts();
 
 // garments end point
 const garmentsList = () => {
-	axios.get('http://localhost:4017/api/garments').then(function (result) {
+	axios.get('/api/garments').then(function (result) {
 		console.log(result.data);
 		searchResultsElem.innerHTML = garmentsTemplate({
 			garments: result.data.garments
@@ -89,7 +89,7 @@ garmentsList();
 
 // /api/garments/price/:price ----end point
 const priceEndpoint = () => {
-	axios.get('http://localhost:4017/api/garments/price/:price').then(function (result) {
+	axios.get('/api/garments/price/:price').then(function (result) {
 		console.log(result.data);
 		searchResultsElem.innerHTML = garmentsTemplate({
 			garments: result.data.garments,
