@@ -7,7 +7,9 @@
 	<title>Missy Tee - clothing store</title>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
-	<link rel="stylesheet" href="style.css">
+	<!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="./bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
 
 	<script class="garmentListTemplate" type="type/script-x" >
 		<div>
@@ -37,13 +39,24 @@
 	<div class="login hidden">
 		<strong>Logged in as</strong> <span class="username" >amandam</span>
 	</div>
+
 	<div class="container " >
 		<h1>Missy Tee - clothing store</h1>
 
-		<div class="loginSection">
-			<label for="">Enter your github username</label>
-			<input type="text" class="userInput">
-			<input type="button" value="login" class="loginbtn">
+		<div class="row">
+			<div class="loginSection">
+				<div class="row">
+					<div class="col-sm-3">
+						<label for="" class="form-label">Enter your github username</label>
+					</div>
+					<div class="col-sm-7">
+						<input type="text" class="form-control userInput">
+					</div>
+					<div class="col-sm-2">
+					<input type="button" value="login" class="btn btn-primary loginbtn">
+					</div>
+				</div>
+			</div>
 		</div>
 		
 		<div class="topSection hidden">
@@ -51,11 +64,11 @@
 
 			<div class="gaments">
 				<h4>Copy and paste the garnment url below:</h4>
-				<ul class="added_garments">
-					<li>Boyfriend Jeans: bfjeans.png</li>
-					<li>Miniskirt: miniskirt.jpg</li>
-					<li>Leggings: leggings.jpeg</li>
-					<li>Croptop: croptop.jpeg</li>				
+				<div class="added_garments">
+					<span>Boyfriend Jeans: bfjeans.png</span>
+					<span>Miniskirt: miniskirt.jpg</span>
+					<span>Leggings: leggings.jpeg</span>
+					<span>Croptop: croptop.jpeg</span>				
 				</ul>
 
 			</div>
@@ -166,5 +179,7 @@
 	<script src="field-manager.js"></script>
 	<script src="add-garment.js"></script>
 	<script src="login.js"></script>
+	<script src="./Bootstrap-js/bootstrap.bundle.min.js"></script>
+	<script src="./Bootstrap-js/bootstrap.min.js"></script>
 </body>
 </html>

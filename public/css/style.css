@@ -1,12 +1,27 @@
 body {
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
-	background-color: lightgoldenrodyellow;
+	/* background-color: lightgoldenrodyellow; */
 }
 
 .container {
 	margin: auto;
 	width: 60%;
+}
+
+.carousel-item img{
+	height: 300px;
+}
+
+h1{
+	margin: 25px 0;
+}
+
+h1, h4{
+	text-align: center;
+}
+
+ul li{
+	list-style-type: none;
 }
 
 img {
@@ -26,7 +41,7 @@ img {
 .garment {
 	flex : 1;
 	background-color: beige;
-	border: 1px solid greenyellow;
+	border: 1px solid #9f8585;
 	padding: 1em;
 	margin: 0.25em;
 	border-radius: 0.5em;
@@ -65,15 +80,28 @@ img {
 
 
 .message {
-
 	margin-top: 1em;
 	padding: 1em;
-
 	background-color: lightsalmon;
-
 
 }
 
 .garment img{
 	max-width:128px;
+}
+
+/* added styles */
+.loginSection{
+	border: 1px solid;
+	margin: 25px;
+	padding: 15px;
+}
+
+.loginSection{
+	/* width: 45%; */
+	margin:auto;
+}
+
+.loginSection label{
+	font-size: 13px;
 }
