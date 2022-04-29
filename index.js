@@ -3,6 +3,7 @@ const express = require('express');
 
 const app = express();
 
+// THE CORES ARE ADDED FOR HEROKU AND THEY ARE USED ON ALL MY ROUTES
 const cors = require('cors');
 app.use((req, res, next) => {
 	res.setHeader("Access-Control-Allow-Origin", "https://api-creation-workshop-ma.herokuapp.com/");
@@ -38,6 +39,7 @@ app.post('/api/login', cors(), function (req, res, next) {
 
 	// get the username using ES6 constructor
 	const { username } = req.body;
+	console.log(username);
 	// const username = req.body.username;
 
 	if (username === adminUser.username) {
@@ -174,3 +176,5 @@ const PORT = process.env.PORT || 4017;
 app.listen(PORT, function () {
 	console.log(`App started on port ${PORT}`)
 });
+
+// get the username on the token

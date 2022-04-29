@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-	width: 60%;
+	width: 80%;
 	margin: auto;
 }
 
@@ -18,6 +18,19 @@ h1{
 
 h1, h4{
 	text-align: center;
+}
+
+.added_garments{
+	text-align: center;
+}
+
+@media (max-width: 576px) {
+	h1, h4{
+		text-align:left;
+	}
+	.added_garments{
+		text-align: left;
+	}
 }
 
 ul li{

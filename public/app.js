@@ -13,6 +13,7 @@ const loginbtnElem = document.querySelector('.loginbtn');
 const garmentsTemplateText = document.querySelector('.garmentListTemplate');
 const garmentsTemplate = Handlebars.compile(garmentsTemplateText.innerHTML);
 
+
 const showSnackBar = () => {
 	const snackbarElem = document.getElementById('snackbar');
 	snackbarElem.className = 'show';
@@ -43,21 +44,22 @@ let storedTokens = JSON.parse(localStorage.getItem('myTokens'));
 
 const loginRoute = (username) => {
 	axios.post(`/api/login`, { username }).then(function (result) {
-		console.log(result.data);
+		// console.log(result.data);
+		userToken = result.data
+		console.log(userToken);
+		localStorage.setItem('myTokens', JSON.stringify(userToken));
+
+
 		if (result.data && result.data.status) {
 			// show error message on screen
 			// keep login screen
-			let message = 'User not allowed to login';
-			showMessage(message);
-			return
-		} else {
+			// showMessage(message);
+			return showMessage(message);
+		}
+		 else {
 			loginScreenToggle();
 			showHiddenSections();
 			filterData();
-
-			userToken = result.data
-			console.log(userToken);
-			localStorage.setItem('myTokens', JSON.stringify(userToken));
 		}
 
 	})
